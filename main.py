@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import pycron
 import time
-from functions import urls, CheckingName, sendMessage
+from functions import urls, checkingName, sendMessage
 import logging
 
 
@@ -35,12 +35,16 @@ def main():
                 f.write(x.text + "\n")
 
 
-        if CheckingName("Korra"):
-            sendMessage("Korra")
+        if checkingName("Gohan"):
+            sendMessage("Gohan")
+        else:
+            logger.exception("not present")
     except Exception as e:
       logger.exception(e)
     
 
 
 if __name__ == "__main__":
-    main()
+    if pycron.is_now('13 13 * * *'):   # True every day at 13:13
+        main()
+   

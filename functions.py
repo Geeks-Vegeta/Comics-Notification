@@ -8,7 +8,7 @@ load_dotenv(find_dotenv())
 urls = os.environ.get("URL")
 
 
-def CheckingName(name):
+def checkingName(name):
 
     try:
         comic_name = name
